@@ -12,9 +12,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
 
 
+
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
 
+    private Vector3 startPosition;
     private float horizontal;
 
     private void FixedUpdate()
@@ -51,6 +53,19 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity=new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
+    public void Crouch(InputAction.CallbackContext context)
+    {
+        if(context.performed && IsGrounded())
+        {
+            anim.SetBool("isCrouching",true);
+            speed=0f;
+        }
+        if (context.canceled)
+        {
+            anim.SetBool("isCrouching",false);
+            speed=4f;
+        }
+    }
     public void Run(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -67,6 +82,10 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f,0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+    }
+    void Start()
+    {
+        startPosition=transform.position;
     }
    
 }
