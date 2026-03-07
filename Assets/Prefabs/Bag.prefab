@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e7f8af8a53e214ab67eae6f25d5bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BagBehaviour
-  velocity: 4
+  velocity: 5
   sr: {fileID: 6337757927434745345}
   spiralSpeed: 5
   spiralRadius: 0.8

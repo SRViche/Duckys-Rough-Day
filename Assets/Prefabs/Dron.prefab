@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa158e8750e14c94082b559877d15484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DronBehaviour
-  velocity: 5
+  velocity: 6
   sr: {fileID: 5475734729378772580}
 --- !u!50 &4939929359673830296
 Rigidbody2D:
